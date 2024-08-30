@@ -1,6 +1,6 @@
 public class SituacionFinal {
-    private final String estado;
-    private final int inasistencias;
+    private String estado;
+    private int inasistencias;
 
     public SituacionFinal(String estado, int inasistencias) {
         this.estado = estado;
@@ -13,5 +13,13 @@ public class SituacionFinal {
 
     public int getInasistencias() {
         return inasistencias;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public void setInasistencias(int inasistencias) {
+        this.inasistencias = inasistencias;
     }
 }
