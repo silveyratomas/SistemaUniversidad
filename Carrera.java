@@ -1,26 +1,23 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Carrera {
     private String nombre;
     private int duracion;
-    private String coordinador;
     private double precioInscripcion;
     private double precioCuota;
+    private Profesor coordinador;
     private List<Alumno> alumnos;
     private List<Materia> materias;
 
-    public Carrera(String nombre, int duracion, String coordinador, double precioInscripcion, double precioCuota) {
+    public Carrera(String nombre, int duracion, double precioInscripcion, double precioCuota, Profesor coordinador) {
         this.nombre = nombre;
         this.duracion = duracion;
-        this.coordinador = coordinador;
         this.precioInscripcion = precioInscripcion;
         this.precioCuota = precioCuota;
+        this.coordinador = coordinador;
         this.alumnos = new ArrayList<>();
         this.materias = new ArrayList<>();
-    }
-
-    public String getNombre() {
-        return nombre;
     }
 
     public void agregarAlumno(Alumno alumno) {
@@ -31,12 +28,12 @@ public class Carrera {
         materias.add(materia);
     }
 
-    public List<Materia> getMaterias() {
-        return materias;
-    }
-
     public List<Alumno> getAlumnos() {
         return alumnos;
+    }
+
+    public List<Materia> getMaterias() {
+        return materias;
     }
 
     public Alumno buscarAlumno(int legajo) {
@@ -48,12 +45,23 @@ public class Carrera {
         return null;
     }
 
-    public Materia buscarMateria(String nombreMateria) {
-        for (Materia materia : materias) {
-            if (materia.getNombre().equalsIgnoreCase(nombreMateria)) {
-                return materia;
-            }
-        }
-        return null;
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public double getPrecioInscripcion() {
+        return precioInscripcion;
+    }
+
+    public double getPrecioCuota() {
+        return precioCuota;
+    }
+
+    public Profesor getCoordinador() {
+        return coordinador;
     }
 }
