@@ -10,4 +10,8 @@ public class Profesor {
     public String getNombre() {
         return nombre;
     }
+
+    public String getDni() {
+        return dni;
+    }
 }
