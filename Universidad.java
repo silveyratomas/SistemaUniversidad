@@ -51,6 +51,7 @@ public class Universidad {
             System.out.println("Ya existe un alumno con el mismo DNI o número de legajo en esta carrera.");
         } else {
             carrera.agregarAlumno(alumno);
+            
             System.out.println("Alumno matriculado con éxito.");
             System.out.println("Cuota de inscripción: " + carrera.getPrecioInscripcion());
 System.out.println("Cuota mensual: " + carrera.getPrecioCuota());
