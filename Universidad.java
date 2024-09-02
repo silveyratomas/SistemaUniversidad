@@ -14,8 +14,8 @@ public class Universidad {
         Profesor coordinador1 = new Profesor("Jose Luis", "12345678");
         Profesor profesor1 = new Profesor("Hector", "87654321");
         Carrera carrera1 = new Carrera("Ingeniería", 5, 400000.0, 189000.0, coordinador1);
-        Materia materia1 = new Materia("ParadigmasYLenguajesDeProgramacionII", 2, 2, profesor1);
-        Materia materia2 = new Materia("FísicaII", 2, 2, profesor1);
+        Materia materia1 = new Materia("ParadigmasYLenguajesDeProgramacionII", 2, 2, profesor1, 0, 0, profesor1);
+        Materia materia2 = new Materia("FísicaII", 2, 2, profesor1, 0, 0, profesor1);
         carrera1.agregarMateria(materia1);
         carrera1.agregarMateria(materia2);
         carreras.add(carrera1);
@@ -23,8 +23,8 @@ public class Universidad {
         Profesor coordinador2 = new Profesor("Coordinador 2", "87654322");
         Profesor profesor2 = new Profesor("Profesor 2", "12345679");
         Carrera carrera2 = new Carrera("Medicina", 6, 400000.0, 189000.0, coordinador2);
-        Materia materia3 = new Materia("Anatomía", 1, 1, profesor2);
-        Materia materia4 = new Materia("Biología", 1, 1, profesor2);
+        Materia materia3 = new Materia("Anatomía", 1, 1, profesor2, 0, 0, profesor2);
+        Materia materia4 = new Materia("Biología", 1, 1, profesor2, 0, 0, profesor2);
         carrera2.agregarMateria(materia3);
         carrera2.agregarMateria(materia4);
         carreras.add(carrera2);
@@ -52,6 +52,9 @@ public class Universidad {
         } else {
             carrera.agregarAlumno(alumno);
             System.out.println("Alumno matriculado con éxito.");
+            System.out.println("Cuota de inscripción: " + carrera.getPrecioInscripcion());
+System.out.println("Cuota mensual: " + carrera.getPrecioCuota());
+
         }
     }
 
@@ -75,6 +78,7 @@ public class Universidad {
                 } else {
                     alumno.inscribirMateria(materia);
                     System.out.println("Alumno inscrito en la materia con éxito.");
+                    
                 }
                 return;
             }
@@ -152,7 +156,8 @@ public class Universidad {
                     SituacionFinal situacion = alumno.getMaterias().get(materia);
                     if (situacion != null) {
                         System.out.println("Alumno: " + alumno.getNombre() + ", Legajo: " + alumno.getLegajo() +
-                                ", Situación: " + situacion.getEstado() + ", Inasistencias: " + situacion.getInasistencias());
+                                ", Situación: " + situacion.getEstado() + ", Inasistencias: " + situacion.getInasistencias() +
+                                ", Profesor: " + materia.getProfesor().getNombre());
                     }
                 }
             }
